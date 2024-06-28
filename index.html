@@ -3,7 +3,7 @@
 <head>
     <link href="style.css" rel="stylesheet">
 <h1>B.M.I CALCULATOR</h1>
-<form action="form.html" method="post">
+<form onsubmit="return takeValue()">
     <label for="username"><b>Name</b></label><br>
     <input type="text" name="username" id="username" required><br><br>
     <label for=" weight"><b>Weight</b></label><br>
@@ -16,6 +16,7 @@
     <input type="radio" value="male" id="male" name="gender" checked ><label for="male">Male</label> <input type="radio" name="gender" id="Female" value="Female"><label for="Female">Female</label> <br>
    <br>
     <input type="reset">  <input type="submit" value="Get Your BMI"> 
+    <div id="result"></div>
 </form>
     <!-- <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,7 +26,27 @@
  <img src="Adiyogi.jpg" width="25%" height="25%" title="JAI MAHAKAL!"> 
 <h2 id="shiv">This is lord Shiv!</h2>     --> 
 
+<script>
+        function takeValue(){
+            var name = document.getElementById("username").value;
+            var height = document.getElementById("height").value;
+            var weight = document.getElementById("weight").value;
+            var bmi = (weight/(height*height))*10000;
 
+            function isHealthy(bmi){
+                if(bmi < 18.5 || bmi > 25){
+                    return "unhealthy";
+                } else {
+                    return "healthy";
+                }
+            }
+
+            var result = "Your bmi is " + bmi.toFixed(2) + " which is " + isHealthy(bmi);
+            document.getElementById("result").innerHTML = result;
+            return false;
+        }
+    </script>
+</script>
 </pre> 
 </head>
 <body> 
