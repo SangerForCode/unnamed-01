@@ -16,16 +16,9 @@
     <input type="radio" value="male" id="male" name="gender" checked ><label for="male">Male</label> <input type="radio" name="gender" id="Female" value="Female"><label for="Female">Female</label> <br>
    <br>
     <input type="reset">  <input type="submit" value="Get Your BMI"> 
-    <div id="result"></div>
 </form>
-    <!-- <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>unnamed 01</title>
-    <h1 style="color: brown;background-color: bisque;">first heading</h1>
-    <pre><b id="hey">hello html world let me create a finance project for you.</b>
- <img src="Adiyogi.jpg" width="25%" height="25%" title="JAI MAHAKAL!"> 
-<h2 id="shiv">This is lord Shiv!</h2>     --> 
-
+<div id="result"></div>
+<img id="bmiImage" style="display:none; max-width: 200px; max-height: 200px;" />
 <script>
         function takeValue(){
             var name = document.getElementById("username").value;
@@ -40,10 +33,20 @@
                     return "healthy";
                 }
             }
-
             var result = name +" your bmi is " + bmi.toFixed(2) + " which is " + isHealthy(bmi);
             document.getElementById("result").innerHTML = result;
+            var healthStatus = isHealthy(bmi);
+            var bmiImage = document.getElementById("bmiImage");
+            if (healthStatus === "healthy") {
+                bmiImage.src = "good.png"; // Replace with the path to your healthy image
+            } else {
+                bmiImage.src = "bad.jpg"; // Replace with the path to your unhealthy image
+            }
+            bmiImage.style.display = "block";
+            
+            
             return false;
+
         }
     </script>
 </script>
